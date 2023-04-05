@@ -8,9 +8,19 @@
 .nav-logo {
   height: 50px;
   width: 50px;
+  margin: 20px;
 }
 .card-container {
   background-color: darkslategrey;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
   padding: 30px;
+  margin: 20px;
+  min-height: 100vh;
+  max-height: 100%;
+}
+.loader {
+  align-self: center;
+  padding-top: 200px;
 }

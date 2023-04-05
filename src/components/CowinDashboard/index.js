@@ -28,8 +28,8 @@ class CowinDashboard extends Component {
   }
 
   renderLoader = () => (
-    <div className="card" data-testid="loader">
-      <Loader type="ThreeDots" color="black" height={80} width={80} />
+    <div className="loader" data-testid="loader">
+      <Loader type="ThreeDots" color="#ffff" height={80} width={80} />
     </div>
   )
 
