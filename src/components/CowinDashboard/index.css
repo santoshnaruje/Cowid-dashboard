@@ -1,0 +1,16 @@
+/* Write your CSS here */
+.nav-card {
+  display: flex;
+  align-items: center;
+  color: aquamarine;
+}
+
+.nav-logo {
+  height: 50px;
+  width: 50px;
+}
+.card-container {
+  background-color: darkslategrey;
+  background-size: cover;
+  padding: 30px;
+}

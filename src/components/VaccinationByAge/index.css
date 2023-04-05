@@ -1,0 +1,7 @@
+/* Write your CSS here */
+.card {
+  margin: 20px;
+  padding: 30px;
+  background-color: transparent;
+  box-shadow: 1px 1px 16px black;
+}
