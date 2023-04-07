@@ -1,6 +1,5 @@
 // Write your code here
 import {
-  ResponsiveContainer,
   BarChart,
   Legend,
   XAxis,
@@ -16,8 +15,8 @@ const BarGraph = props => {
   return (
     <div className="card">
       <h1>Vaccination Coverage</h1>
-      <ResponsiveContainer width="100%" height={500}>
-        <BarChart
+      
+        <BarChart width="100%" height={500}
           data={name}
           margin={{
             top: 5,
@@ -46,7 +45,7 @@ const BarGraph = props => {
           <Bar dataKey="dose_1" name="Dose1" fill="#1f77b4" barSize="20%" />
           <Bar dataKey="dose_2" name="Dose2" fill="#fd7f0e" barSize="20%" />
         </BarChart>
-      </ResponsiveContainer>
+      
     </div>
   )
 }
