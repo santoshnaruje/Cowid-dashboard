@@ -4,7 +4,18 @@
   align-items: center;
   color: aquamarine;
 }
-
+.failure-image {
+  height: 400px;
+  width: 400px;
+}
+.failure-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: bree-serif;
+}
 .nav-logo {
   height: 50px;
   width: 50px;
@@ -19,6 +30,7 @@
   margin: 20px;
   min-height: 100vh;
   max-height: 100%;
+  color: white;
 }
 .loader {
   align-self: center;

@@ -40,7 +40,7 @@ class CowinDashboard extends Component {
     }
     const response = await fetch(vaccinationDataApiUrl, options)
     const data = await response.json()
-    console.log(response)
+    console.log(data)
     if (response.ok === true) {
       const {
         last_7_days_vaccination: last7Days,
@@ -55,7 +55,13 @@ class CowinDashboard extends Component {
         apiStatus: apiStatusConstants.success,
       })
     }
-    if (response.status === 401) {
+    if (
+      response.status === 401 ||
+      response.status === 400 ||
+      response.status === 403 ||
+      response.status === 404 ||
+      response.status === 500
+    ) {
       this.setState({apiStatus: apiStatusConstants.failure})
     }
   }
@@ -72,8 +78,9 @@ class CowinDashboard extends Component {
   }
 
   renderFailure = () => (
-    <div>
+    <div className="failure-card">
       <img
+        className="failure-image"
         src="https://assets.ccbp.in/frontend/react-js/api-failure-view.png"
         alt="failure view"
       />
