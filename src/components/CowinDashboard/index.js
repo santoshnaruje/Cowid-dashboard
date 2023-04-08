@@ -35,12 +35,11 @@ class CowinDashboard extends Component {
 
   getCowidData = async () => {
     this.setState({apiStatus: apiStatusConstants.inProgress})
-    const options = {
-      method: 'GET',
-    }
-    const response = await fetch(vaccinationDataApiUrl, options)
+
+    const response = await fetch(vaccinationDataApiUrl)
     const data = await response.json()
     console.log(data)
+
     if (response.ok === true) {
       const {
         last_7_days_vaccination: last7Days,
@@ -55,7 +54,16 @@ class CowinDashboard extends Component {
         apiStatus: apiStatusConstants.success,
       })
     }
-    if (response.status === 401 || 400) {
+    if (
+      response.status === 401 ||
+      response.status === 400 ||
+      response.status === 403 ||
+      response.status === 404 ||
+      response.status === 500 ||
+      response.status === 504 ||
+      response.status === 502 ||
+      response.status === 503
+    ) {
       this.setState({apiStatus: apiStatusConstants.failure})
     }
   }
