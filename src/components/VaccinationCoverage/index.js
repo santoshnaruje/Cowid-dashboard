@@ -1,7 +1,7 @@
 // Write your code here
 import {BarChart, Legend, XAxis, YAxis, Bar} from 'recharts'
 
-const BarGraph = props => {
+const VaccinationByCoverage = props => {
   const {name} = props
 
   const DataFormatter = number => `${number}k`
@@ -10,15 +10,7 @@ const BarGraph = props => {
     <div className="card">
       <h1>Vaccination Coverage</h1>
 
-      <BarChart
-        height={1000}
-        width={500}
-        data={name}
-        margin={{
-          top: 5,
-          left: 10,
-        }}
-      >
+      <BarChart width={1000} height={500} data={name}>
         <XAxis
           dataKey="vaccine_date"
           tick={{
@@ -44,4 +36,4 @@ const BarGraph = props => {
     </div>
   )
 }
-export default BarGraph
+export default VaccinationByCoverage

@@ -6,9 +6,9 @@ const VaccinationByAge = props => {
   const {name} = props
   return (
     <div className="card">
-      <h1>Vaccination by Age</h1>
+      <h1 style={{margin: '20px'}}>Vaccination by Age</h1>
 
-      <PieChart height={500} width={300}>
+      <PieChart width={1000} height={300}>
         <Pie
           cx="70%"
           cy="40%"

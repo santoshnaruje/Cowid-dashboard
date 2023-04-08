@@ -4,7 +4,7 @@ import Loader from 'react-loader-spinner'
 
 import VaccinationByGender from '../VaccinationByGender'
 import VaccinationByAge from '../VaccinationByAge'
-import BarGraph from '../VaccinationCoverage'
+import VaccinationByCoverage from '../VaccinationCoverage'
 import './index.css'
 
 const apiStatusConstants = {
@@ -55,13 +55,7 @@ class CowinDashboard extends Component {
         apiStatus: apiStatusConstants.success,
       })
     }
-    if (
-      response.status === 401 ||
-      response.status === 400 ||
-      response.status === 403 ||
-      response.status === 404 ||
-      response.status === 500
-    ) {
+    if (response.status === 401 || 400) {
       this.setState({apiStatus: apiStatusConstants.failure})
     }
   }
@@ -70,7 +64,8 @@ class CowinDashboard extends Component {
     const {vaccinationAge, lastDays, vaccinationGender} = this.state
     return (
       <>
-        <BarGraph name={lastDays} />
+        <VaccinationByCoverage name={lastDays} />
+
         <VaccinationByGender name={vaccinationGender} />
         <VaccinationByAge name={vaccinationAge} />
       </>
@@ -88,19 +83,15 @@ class CowinDashboard extends Component {
     </div>
   )
 
-  renderSwitch = () => {
+  renderSwicth = () => {
     const {apiStatus} = this.state
-
     switch (apiStatus) {
-      case apiStatusConstants.success:
-        return this.renderGraphs()
-
-      case apiStatusConstants.failure:
-        return this.renderFailure()
-
       case apiStatusConstants.inProgress:
         return this.renderLoader()
-
+      case apiStatusConstants.success:
+        return this.renderGraphs()
+      case apiStatusConstants.failure:
+        return this.renderFailure()
       default:
         return null
     }
@@ -118,10 +109,9 @@ class CowinDashboard extends Component {
           <p className="nav-head">Co-win</p>
         </div>
         <h1>CoWIN Vaccination in India</h1>
-        {this.renderSwitch()}
+        {this.renderSwicth()}
       </div>
     )
   }
 }
-
 export default CowinDashboard
